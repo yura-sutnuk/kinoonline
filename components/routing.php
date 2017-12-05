@@ -23,14 +23,16 @@
 			{
 				if(preg_match("~$patern~", $uri) )
 				{
+				
 						$segment = preg_replace("~$patern~", $path , $uri);
+						//var_dump($segment);
 						$segment = explode('/',$segment);
-					
+					//var_dump($segment);
 						
 						$controllerName = array_shift($segment)."Controller";
 						$actionName="action".ucfirst( array_shift($segment) );
 						$param = $segment;
-						
+						//echo 'param'. var_dump($param);
 						$file = ROOT."/controllers/".$controllerName.".php";
 						
 						
@@ -47,10 +49,11 @@
 						
 						$controllerObj = new $controllerName;
 						
-						if(call_user_func_array( array($controllerObj, $actionName) , $param)){
-						break;
+						if(call_user_func_array( array($controllerObj, $actionName) , $param))
+						{
+							break;
 						}
-						
+					return;//////////////////////////	
 				}
 				
 			}

@@ -5,15 +5,13 @@
 	</head>
 	
 	<body>
-		<?php echo __FILE__; ?>
-		<div id="top" align="right" >
-			  <a href="#" > вход </a> | <a href="#"> зарегестрироваться </a> <input type="text" name="search" value="Search"/> 
-		</div>
+		
+		<?php include 'parts/top.php';?>
 		
 		<div id="content" >
 		
 			<div>
-				<form name="addFilm" method="POST" action="/controllers/addController.php">
+				<form name="addFilm" method="POST" action="/controllers/addFilmController.php" enctype="multipart/form-data">
 					<table border="0" cellpadding="5" cellspacing="5">
 						<tr >
 							<td align="right">Название фильма</td> 
@@ -28,30 +26,10 @@
 							<td align="right" ><font color="black">Жанр</font></td> 
 							<td>
 								<select  name='genre[]' size = '12' multiple>
-									<option style='color:black' value='аниме'><font color='black'> аниме </font>
- 									<option style='color:black' value='биография'>биография
-									<option style='color:black' value='боевик'>боевик
-									<option style='color:black' value='вестерн'>вестерн
-									<option style='color:black' value='военный'>военный
-									<option style='color:black' value='детектив'>детектив
-									<option style='color:black' value='детский'>детский
-									<option style='color:black' value='документальный'>документальный
-									<option style='color:black' value='драма'>драма
-									<option style='color:black' value='история'>история
-									<option style='color:black' value='комедия'>комедия
-									<option style='color:black' value='короткометражка'>короткометражка
-									<option style='color:black' value='мелодрама'>мелодрама
-									<option style='color:black' value='музыка'>музыка
-									<option style='color:black' value='мультфильм'>мультфильм
-									<option style='color:black' value='мюзикл'>мюзикл
-									<option style='color:black' value='приключения'>приключения
-									<option style='color:black' value='семейный'>семейный
-									<option style='color:black' value='спорт'>спорт
-									<option style='color:black' value='триллер'>триллер
-									<option style='color:black' value='ужасы'>ужасы
-									<option style='color:black' value='фантастика'>фантастика
-									<option style='color:black' value='криминал'>криминал
-									<option style='color:black' value='фэнтези'>фэнтези
+                                    <?php foreach(GENRE_LIST as $genre)
+									{
+									  echo "<option style='color:black' value=". $genre.">".$genre;
+									}?>
 								</select>
 							</td> 
 						</tr>
@@ -73,20 +51,20 @@
 							<td><input type="text" class="text" name="video" ></td> 
 						</tr>
 						<tr>
-							<td align="right">Постер</td> 
-							<td><input type="text" class="text" name="poster" ></td> 
+							<td align="right">Постер (*.jpeg)</td> 
+							<td><input type="file"  name="poster" accept="image/*,image/jpeg" ></td> 
 						</tr>
 						<tr>
-							<td align="right">Скриншот 1</td> 
-							<td><input type="text" class="text" name="screen1" ></td> 
+							<td align="right">Скриншот 1(*.jpeg)</td> 
+							<td><input type="file"  name="screen1" accept="image/*,image/jpeg" ></td> 
 						</tr>
 						<tr>
-							<td align="right">Скриншот 2</td> 
-							<td><input type="text" class="text" name="screen2" ></td> 
+							<td align="right">Скриншот 2(*.jpeg)</td> 
+							<td><input type="file"  name="screen2" accept="image/*,image/jpeg"></td> 
 						</tr>
 						<tr>
-							<td align="right">Скриншот 3</td> 
-							<td><input type="text" class="text" name="screen3" ></td> 
+							<td align="right">Скриншот 3(*.jpeg)</td> 
+							<td><input type="file"  name="screen3" accept="image/*,image/jpeg"></td> 
 						</tr>
 						<tr>
 							<td align="right">Описание</td> 
