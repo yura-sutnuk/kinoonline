@@ -20,6 +20,12 @@
 				
 					<a href="film/<?php echo $films['id'].'/'?>"><h3> <?php echo $films['name']; ?> </h3></a>
 					<a href="film/<?php echo $films['id'].'/'?>"><img width="200" height="300" src="<?php echo '/views/images/'.$films['poster'];  ?>"></a>
+					
+					<?php if(isset($_SESSION['login']) && $_SESSION['login']=='Admin'):?>
+					<a href="/edit/<?php echo $films['id'].'/'?>" class="floatLeft clearLeft">Редактировать</a>
+					<a href="/delete/<?php echo $films['id'].'/'?>" class="floatLeft marginLeft">Удалить</a>
+					<?php endif; ?>
+					
 					<p>Год выпуска: <?php echo $films['year']; ?></p>
 					<p>Жанр: <?php foreach($films['genre'] as $genre)
 										{

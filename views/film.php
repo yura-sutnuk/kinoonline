@@ -19,6 +19,13 @@
 					<div >
 						<h3> <?php echo $filmData['name']; ?> </h3>
 						<img width="200" height="300" src="<?php echo '/views/images/'.$filmData['poster'];  ?>">
+						
+						<?php if(isset($_SESSION['login']) && $_SESSION['login']=='Admin'):?>
+						<a href="/edit/<?php echo $filmData['id'].'/'?>" class="floatLeft clearLeft">Редактировать</a>
+						<a href="/delete/<?php echo $filmData['id'].'/'?>" class="floatLeft marginLeft">Удалить</a>
+						<?php endif; ?>
+					
+					
 						<p>Год выпуска: <?php echo $filmData['year']; ?></p>
 						<p>Жанр: <?php foreach($filmData['genre'] as $genre)
 										{
@@ -40,7 +47,8 @@
 					</fieldset>
 					
 					<div id='video'>
-					<iframe src="<?php echo $filmData['video'];?>" width="632" height="305" frameborder="0" style="z-index:2147483647;"></iframe>
+					<iframe src="<?php echo $filmData['video'];?>" width="632" height="305" frameborder="0" style="z-index:2147483647;" allowfullscreen></iframe>
+					
 					</div>
 					
 					<?php include 'parts/commentBlock.php'; ?>

@@ -24,7 +24,7 @@
 				<div id="randomFilm">
 				
 				<h3 align="center"> Случайный фильм </h3><br>
-				<a href="film/<?php echo $randFilm['id'] ?>"> <img width="200" height="300" src="/views/images/<?php echo $randFilm['poster']; ?>"> </a>
+				<a href="/film/<?php echo $randFilm['id'] ?>"> <img width="200" height="300" src="/views/images/<?php echo $randFilm['poster']; ?>"> </a>
 				<p> </p>
 				<p align="center"><?php echo $randFilm['name']; ?></p>
 				</div>

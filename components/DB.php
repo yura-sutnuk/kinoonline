@@ -38,13 +38,13 @@
 			$this->PDOlink = new PDO("mysql:host={$seting['host']};dbname={$seting['database']}", $seting['user'], $seting['password'],array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
 			//array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8")
 			//return $this->PDOlink;
-			  // $this->PDOlink->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			  $this->PDOlink->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
               $this->PDOlink->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING );
 		}
 		
 		public  function MyQuery(string $query)
 		{
-		   
+		  // var_dump($query);
 			$result = $this->PDOlink->query($query);
 			//var_dump( $this->PDOlink);
 		

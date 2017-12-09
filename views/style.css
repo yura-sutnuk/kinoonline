@@ -21,12 +21,17 @@
 	#top input{
 		margin-left:20px;
 	}
+	.paddingHorizontal
+	{
+	padding-left:5px;
+	padding-right:5px;
+	}
 
 	
 	#content{
 		
 		background-color:2b2b2b;
-		margin:200px auto 0 auto;
+		margin:200px auto 100 auto;
 		width:1000px; 
 		
 		overflow:hidden;
@@ -180,4 +185,46 @@
 		padding:3px;
 		margin-top:10px;
 	}
+	
+	.editButton
+	{
+	  float:left;
+	  margin:10px;
+	  color:black;
+	  padding:3px;
+
+	}
+	 .clearLeft
+	 {
+	 	  clear:left;
+	 }
+	 #editField
+	 {
+	 float:left;
+	 clear:both;
+	 }
+	 .floatLeft
+	 {
+	 float:left;
+	 }
+	 .marginLeft
+	 {
+	 margin-left:20px;
+	 }
+	 
+	 .error
+	{
+		width:auto;
+		border:1px solid #944444;
+		border-radius:10px;
+		background-color: #842935;
+	}
+
+	.errorText
+	{
+		color:#da7575;
+		margin:5px;
+		padding:0;
+	}
+
 	

@@ -15,9 +15,13 @@
 				return trim($_SERVER['REQUEST_URI'],'/');
 			}
 		}
-	public function run()
+		public function run()
 		{
 			$uri = $this->getURI();
+			//$controllerName='mainController';
+			//$actionName='actionMain';
+			//$param = [];
+			
 			
 			foreach($this->routs as $patern => $path)
 			{
@@ -32,6 +36,7 @@
 						$controllerName = array_shift($segment)."Controller";
 						$actionName="action".ucfirst( array_shift($segment) );
 						$param = $segment;
+						
 						//echo 'param'. var_dump($param);
 						$file = ROOT."/controllers/".$controllerName.".php";
 						
@@ -43,20 +48,23 @@
 						}
 						else
 						{
-							echo "Error 404:  ".$file ."  not founded <br>";
+							include ROOT.'/views/page404.php';
 							return;
 						}
 						
 						$controllerObj = new $controllerName;
 						
-						if(call_user_func_array( array($controllerObj, $actionName) , $param))
-						{
-							break;
-						}
-					return;//////////////////////////	
+						call_user_func_array( array($controllerObj, $actionName) , $param);
+						
+							return;
+						
+					  //return;//////////////////////////	
 				}
 				
 			}
+			
+			include ROOT.'/views/page404.php';
+						
 			
 			
 		}

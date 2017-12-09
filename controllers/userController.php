@@ -5,6 +5,11 @@ include ROOT.'/models/userModel.php';
 
   class userController
   {
+	private $model;
+	public function __construct()
+	{
+		$this->model= new userModel(new PDOConnect());
+	}
     public function actionRegistrationForm()
 	{
 	  include ROOT.'/views/registration.php';
@@ -27,8 +32,18 @@ include ROOT.'/models/userModel.php';
 	  //var_dump($path);
 	  header('Location:'.$path );
 	}
+	public function actionProfile($id)
+	{
+		$userData = $this->model->getFieldsValueById(array('avatar','login','registerDate'),$id);
+		$userExtra = $this->model->getFieldsValueById(array('*'),$id,'userData' );
+		var_dump($userData);
+		var_dump($userExtra);
+		
+		include ROOT.'/views/profile.php';	  
+	  return true;
+	}
 	
-	public function registration($param=array())
+	public function registration()
 	{
 	  $pattern = '~[a-zA-z0-9-_]{3,14}~';	  
 	  if(!preg_match($pattern,$_POST['login']))
@@ -39,14 +54,14 @@ include ROOT.'/models/userModel.php';
 		return;
 	  }
 	 
-	  $userModel = new userModel(new PDOConnect());
-	  if($userModel->loginExist($_POST['login']) )
+	 // $userModel = new userModel($this->model);
+	  if($this->model->loginExist($_POST['login']) )
 	  {
 	    echo 'login already exist';
 		return;
 	  }
  
-	   $userModel->addNewUser(array('login'=>$_POST['login'],'password'=> $_POST['password'],'email'=> $_POST['email']));
+	   $this->model->addNewUser(array('login'=>$_POST['login'],'password'=> $_POST['password'],'email'=> $_POST['email']));
 	   
 	   $this->enter($param);
      
@@ -54,18 +69,18 @@ include ROOT.'/models/userModel.php';
 	
 	public function enter($param=array())
 	{
-	  $userModel = new UserModel(new PDOConnect());
-	  $userData = $userModel->userEnter($_POST['login']);
+	  //$userModel = new UserModel(new PDOConnect());
+	  $userData = $this->model->userEnter($_POST['login']);
 	  if(!empty($userData) && $_POST['password']==$userData['password'])
 	  {  
 		session_start();
 	     $_SESSION['id'] = $userData['id'];
 	     $_SESSION['login'] = $userData ['login'];
-		 $path = 'http://kinoonline';
-		 foreach($param as $partPath)
-		 $path .= $partPath;
-		 var_dump($_SERVER['HTTP_REFERER']);
-	     header("Location: http://kinoonline");		
+		// $path = 'http://kinoonline';
+		// foreach($param as $partPath)
+		 //$path .= $partPath;
+		$path =  dirname($_SERVER['HTTP_REFERER']);
+	     header("Location:".$path);		
 	  }
 	    echo 'error in login or password';
 		return;
@@ -73,8 +88,8 @@ include ROOT.'/models/userModel.php';
 
 	public function addNewUserToBD()
 	{
-	  $userModel = new userModel(new PDOConnect());	  
-	  $userModel->addNewUser(array('login'=>$_SESSION['login'],'password'=> $_SESSION['password'],'email'=> $_SESSION['email']));
+	 // $userModel = new userModel(new PDOConnect());	  
+	  $this->model->addNewUser(array('login'=>$_SESSION['login'],'password'=> $_SESSION['password'],'email'=> $_SESSION['email']));
 
 	}
 	
