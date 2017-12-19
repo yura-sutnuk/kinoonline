@@ -2,6 +2,7 @@
 	<head>
 		<title> KINOONLINE </title>
 		<link rel="stylesheet" type="text/css" href="/views/style.css">
+		
 		<script  type="text/javascript" src='/views/script.js'></script>
 	</head>
 	
@@ -10,20 +11,28 @@
 		
 		<div id="content">
 		
-			<div id="left">
+			
               <?php include 'parts/leftContent.php';?>
-			</div>
+			
 
 			<div id="right">
 
 				<div class='film' >
-				  <form action = '/controllers/mainController.php' method ='POST' enctype="multipart/form-data">
+				  <form action = '/controllers/mainController.php' method ='POST' enctype="multipart/form-data" name="form">
 					<input type='hidden' name='filmId' value='<?php echo $id ?>'>
 						
-					<img width="200" height="300" src="<?php echo '/views/images/'.$filmData['poster'];  ?>">
-					<p> Название:<input type='text' name='name' value='<?php echo $filmData['name'];?>' class='text'> </p>
-					<p>Год выпуска:<input type='text' name='year' value='<?php echo $filmData['year'];?>' class='text'> </p>
-					<p>Жанр: <select  name='genre[]' size = '7' multiple>
+					<img class='poster' width="200" height="300" src="<?php echo '/views/images/'.$filmData['poster'];  ?>">
+					<table border="0" cellpadding="5" cellspacing="5">
+					<tr>
+						<td>Название:</td>
+						<td><input type='text' name='name' value='<?php echo $filmData['name'];?>' class='Text'></td>
+					</tr>
+					<tr>
+						<td>Год выпуска:</td>
+						<td><input type='text' name='year' value='<?php echo $filmData['year'];?>' class='Text'> </td>
+					<tr>
+						<td>Жанр:</td>
+						<td><select  name='genre[]' size = '7' multiple class='Text2'>
                                     <?php foreach(GENRE_LIST as $genre)
 									{	
 										$bool = false;
@@ -32,7 +41,7 @@
 											
 											if($genre==$selectedGenre)
 											{
-											 echo "<option style='color:black' value=". $selectedGenre." selected>".$selectedGenre;
+											 echo "<option style='color:#ccc' value=". $selectedGenre." selected>".$selectedGenre;
 											 $bool = true;
 											 break;
 											
@@ -41,29 +50,37 @@
 										}
 										if(!$bool)
 										{
-										echo "<option style='color:black' value=". $genre." >".$genre;
+										echo "<option style='color:#ccc' value=". $genre." >".$genre;
 										}
 									 
 									}?>
-								</select> </p>
+								</select> </td>
 					
 					<!--<p>Жанр: <input type='text' name='genre' value='<?php// echo $filmData['genre'];?>' class='text'></p>-->
-					<p>Страна:<input type='text' name='country' value='<?php echo $filmData['country'];?>' class='text'></p>
-					<p>Режиссер:<input type='text' name='producer' value='<?php echo $filmData['producer'];?>' class='text'></p>
-					<p>В ролях:<input type='text' name='cast' value='<?php echo $filmData['cast'];?>' class='text'> </p>
+					<tr>
+						<td>Страна:</td>
+						<td><input type='text' name='country' value='<?php echo $filmData['country'];?>' class='Text'></td>
+					<tr>
+						<td>Режиссер:</td>
+						<td><input type='text' name='producer' value='<?php echo $filmData['producer'];?>' class='Text'></td>
+					<tr>
+						<td>В ролях:</td>
+						<td><input type='text' name='cast' value='<?php echo $filmData['cast'];?>' class='Text'> </td>
+					</tr>
+					</table>
 					<br>
-					<p><textarea rows='5' cols='40' class='text' name ='description'><?php echo $filmData['description']; ?> </textarea></p>
+					<p><center><textarea rows='7' cols='50' class='Text2' name ='description' wrap ='physical'><?php echo $filmData['description']; ?> </textarea></center></p>
 					
-					<input type='button' name='poster' class='editButton clearLeft' value='Изменить постер' onClick='editPoster();'>
-					<input type='button' name='poster' class='editButton' value='Изменить скриншоты' onClick='editScreenshot();'>
-					<input type='button' name='poster' class='editButton' value='Изменить видео' onClick='editFilm();'>
+					<input type='button' name='changePoster' class='Button clearLeft marginTop' value='Изменить постер' onClick='editPoster();'>
+					<input type='button' name='changeScreens' class='Button marginTop' value='Изменить скриншоты' onClick='editScreenshot();'>
+					<input type='button' name='changeVideo' class='Button marginTop' value='Изменить видео' onClick='editFilm();'>
 					
 					<table border="0" cellpadding="5" cellspacing="5" id='editField'>
 					
 					
 					</table>
 					
-					<input type='submit' name='saveChange' class='button floatLeft clearLeft' value='Сохранить'>
+					<input type='submit' name='saveChange' class='button marginTop'  value='Сохранить'>
 				  </form>
 					
 				  <fieldset id='screens'>
@@ -76,6 +93,8 @@
 				  <div id='video'>
 				  <iframe src="<?php echo $filmData['video'];?>" width="632" height="305" frameborder="0" style="z-index:2147483647;"></iframe>
 				  </div>
+				  
+				
 					
 					
 					

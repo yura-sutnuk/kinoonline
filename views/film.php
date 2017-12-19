@@ -2,6 +2,7 @@
 	<head>
 		<title> KINOONLINE </title>
 		<link rel="stylesheet" type="text/css" href="/views/style.css">
+		<script  type="text/javascript" src='/views/script.js'></script>
 	</head>
 	
 	<body>
@@ -9,16 +10,19 @@
 		
 		<div id="content">
 		
-			<div id="left">
+			
               <?php include 'parts/leftContent.php';?>
-			</div>
+			
 
 			<div id="right">
 
 				<div class='film' >
 					<div >
-						<h3> <?php echo $filmData['name']; ?> </h3>
-						<img width="200" height="300" src="<?php echo '/views/images/'.$filmData['poster'];  ?>">
+						<h3 class='name'> <?php echo $filmData['name']; ?> </h3>
+						
+						<?php include ROOT.'/views/parts/rating.php';?>
+						
+						<img  class='poster' width="200" height="300" src="<?php echo '/views/images/'.$filmData['poster'];  ?>">
 						
 						<?php if(isset($_SESSION['login']) && $_SESSION['login']=='Admin'):?>
 						<a href="/edit/<?php echo $filmData['id'].'/'?>" class="floatLeft clearLeft">Редактировать</a>
@@ -26,7 +30,7 @@
 						<?php endif; ?>
 					
 					
-						<p>Год выпуска: <?php echo $filmData['year']; ?></p>
+						<p style='margin-top:10'>Год выпуска: <?php echo $filmData['year']; ?></p>
 						<p>Жанр: <?php foreach($filmData['genre'] as $genre)
 										{
 											echo $genre;

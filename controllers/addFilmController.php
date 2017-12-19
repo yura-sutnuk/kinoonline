@@ -1,5 +1,5 @@
 <?php
-
+/*
 include ($_SERVER['DOCUMENT_ROOT'].'/const.php');
 include(ROOT."/models/FilmModel.php");
 

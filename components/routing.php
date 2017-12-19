@@ -22,13 +22,14 @@
 			//$actionName='actionMain';
 			//$param = [];
 			
+			//var_dump($uri);
 			
 			foreach($this->routs as $patern => $path)
-			{
+			{	
 				if(preg_match("~$patern~", $uri) )
 				{
 				
-						$segment = preg_replace("~$patern~", $path , $uri);
+						$segment = preg_replace("~$patern~", $path , $uri,1);
 						//var_dump($segment);
 						$segment = explode('/',$segment);
 					//var_dump($segment);
@@ -53,7 +54,7 @@
 						}
 						
 						$controllerObj = new $controllerName;
-						
+						//var_dump($controllerName.'.'.$actionName.'('.$param.')');
 						call_user_func_array( array($controllerObj, $actionName) , $param);
 						
 							return;

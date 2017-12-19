@@ -1,6 +1,7 @@
 ﻿<?php
 
 define ('ROOT',dirname(__FILE__));
+//define ('CONNECTION','PDOConnect');
 
 const GENRE_LIST = [
     'anime'=>'аниме',

@@ -1,230 +1,367 @@
 	
-	*{padding:0;
+*
+{
+	padding:0;
 	margin:0;
-	color:#d7d6d4;}
+	color:#d7d6d4;
+}
 	
-	html {
-		background-image:url(images/bg.jpg);
-		background-position:top left;
-		background-repeat:no-repeat;
-		background-attachment:fixed;
-		background-color:black;
-		background-size: cover;
+html 
+{
+	background-image:url(images/bg.jpg);
+	background-position:top left;
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+	background-color:black;
+	background-size: cover;
 		
-	}
+}
 	
-	#top 
-	{
-		background-color:2b2b2b;
-		padding:10px 55px;	
-	}
-	#top input{
-		margin-left:20px;
-	}
-	.paddingHorizontal
-	{
-	padding-left:5px;
-	padding-right:5px;
-	}
+#top 
+{   
+	position: absolute;
+	width: -webkit-fill-available;
+	top: 0;
+	background-color:#2b2b2b;
+	/*padding-left:20px;*/
+	width:100%;
+}
+#topRight
+{
+	float:right;
+	padding:10px 55px;	
+}
+.search
+{
+	margin-left:20px;
+}
+.paddingHorizontal /* top.php */
+{
+padding-left:5px;
+padding-right:5px;
+}	
+#content
+{	
+	background-color:2b2b2b;
+	margin:200px auto 100 auto;
+	width:1000px; 
+	position:relative;
+	overflow:hidden;	
+	min-height:671;
+	/*border:1px solid #848480;*/
+}
+	
+#left 
+{
+	float:left;
+	width:300px;
+	background-color:#585858;
+	/*border:1px solid #848480;*/
+	position:absolute;
+	bottom:0;
+	top:0;	
+	border-right:1px solid #848480;
+}
+#right
+{
+	float:right;
+	width:698px;
+	overflow:hidden;
+	/*min-height:683;*/
+	
+}
 
+#zhanr
+{
+width:260px;
+margin:0px auto;
+}
 	
-	#content{
-		
-		background-color:2b2b2b;
-		margin:200px auto 100 auto;
-		width:1000px; 
-		
-		overflow:hidden;
-		
-	}
-	
-	#left {
-		float:left;
-		width:300px;
-		background-color:#585858;
-		border:1px solid #848480;
-		
-	}
-	#right
-	{
-		float:right;
-		width:698px;
-		overflow:hidden;
-	}
+.column 	/* leftContent.php */
+{
+	list-style-type:none;
+	float:left;
+	padding:10px 15px 30px 0px;
+}
+#randomFilm
+{	
+	clear:both;
+	padding:20px 50px 20px 50px;
+	color:grey;
+	border-top:1px solid #848480;
+	border-bottom:1px solid #848480;
+}
 
-	#zhanr
-	{
-	
-	width:260px;
-	margin:0px auto;
-	}
-	
-	.column {
-		
-		list-style-type:none;
-		
-		float:left;
-		padding:10px 15px 30px 0px;
-	}
-	#randomFilm
-	{
-		
-		clear:both;
-		padding:20px 50px 20px 50px;
-		color:grey;
-		border-top:1px solid #848480;
-		border-bottom:1px solid #848480;
-	}
-	.film {
-		border:1px solid #848480;
-		padding:10px 10px 10px 10px;
-		overflow:hidden;
-				
-	}
-
-	.film h3
-	{
-		padding-bottom:10px;
-	}
-	.film img
-	{
-		float:left;
-		padding-right:20px;
-		padding-bottom:20px;
-	}
-	.film p{
-		color:#949494;
-	}
-	
-	
-	
-	.text
-	{
-		color:black;
-	}
-	
-	.button
-	{
-		color:black;
-		padding:3px;
-	}
-	
-	#screens
-	{
+	.film 	/*  !!!!   */
+{
+	/*border:1px solid #848480;*/
+	border-bottom:1px solid #848480;
+	/*border-right:1px solid #848480;	*/
+	padding:10px;
+	overflow:hidden;			
+}
+.film .name	/*  !!!!   */
+{
+	display:inline;
+	max-width:max-content;
+	font-size:19;
+	text-decoration:none;	
+	padding-bottom:10px;
+}
+.film .name:hover	/*  !!!!   */
+{
+	text-decoration:underline;
+}
+.film .poster 	/*  !!!!   */
+{
+	float:left;
+	clear:both;
+	padding-right:20px;
+	padding-bottom:20px;
+}
+.film p 	/*  !!!!   */
+{ 
+	color:#949494;
+}
+.film .rating /*  !!!!   */
+{
+	float:right;
+}
+#screens /*  !!!!   */
+{
 	border:1px solid #848480;
 	float:left;
 	padding:15px;
 	margin:20px;
 	margin-left:0;
-	}
-	
-	#screens *
-	{
-		padding:0;
-		margin-right:5px;
-		margin-left:5px;
+}
+#screens * /*  !!!!   */
+{
+	padding:0;
+	margin-right:5px;
+	margin-left:5px;
        
-	}
+}
 	
-	#video
-	{
-		float:left;
-		margin:20px;
-		margin-left:0;
-	
-	}
-	
-	#commentList
-	{
-	  border-top:1px solid #848480;
-	  border-left:1px solid #848480;
-	  border-right:1px solid #848480;
-	  width:94%;
-	  margin-right:50px;
-      float:left;
-	}
-	#commentList h3
-	{
-	  padding:20px;
-	 border-bottom:1px solid #848480;
-	}
-	.commentBlock
-	{
-	  overflow:hidden;
-	  border-bottom:1px solid #848480;
-	
-	  
-	}
-	.commentLeft
-	{
-	  float:left;
-	  padding:10px;
-	  border-right:1px solid #848480;
-	
-	}
-	.commentLeft img,p
-	{
-	  margin:0px;
-	  padding:0px;
-	  padding-bottom:5px;
-	}
-	.commentText
-	{
-	  padding:10px;
-	  float:left;
-	  width:480px;
-	}
-	.commentForm
-	{
-	  float:left;
-	  margin:20px 0 20px 120px;
-	}
-		.commentButton
-	{
-		color:black;
-		padding:3px;
-		margin-top:10px;
-	}
-	
-	.editButton
-	{
-	  float:left;
-	  margin:10px;
-	  color:black;
-	  padding:3px;
+#video /*  !!!!   */
+{
+	float:left;
+	margin:20px;
+	margin-left:0;
+}
 
-	}
-	 .clearLeft
-	 {
-	 	  clear:left;
-	 }
-	 #editField
-	 {
-	 float:left;
-	 clear:both;
-	 }
-	 .floatLeft
-	 {
-	 float:left;
-	 }
-	 .marginLeft
-	 {
-	 margin-left:20px;
-	 }
+#commentList /*  ****   */
+{
+	border-top:1px solid #848480;
+	border-left:1px solid #848480;
+	border-right:1px solid #848480;
+	width:94%;
+	margin-right:50px;
+	float:left;
+}
+#commentList h3 /*  ****   */
+{
+	padding:20px;
+	border-bottom:1px solid #848480;
+}
+.commentBlock	/*  ****   */
+{
+  overflow:hidden;
+  border-bottom:1px solid #848480;	  
+}
+.commentLeft 	/*  ****   */
+{
+  float:left;
+  padding:10px;
+  border-right:1px solid #848480;
+}
+.commentLeft img,p 	/*  ****   */
+{
+	margin:0px;
+	padding:0px;
+	padding-bottom:5px;
+}
+.commentText 	/*  ****   */
+{
+	padding:10px;
+	float:left;
+	width:480px;
+}
+.commentForm 	/*  ****   */
+{
+	float:left;
+	margin:20px 0 20px 120px;
+}
+.commentButton /*  ****   */
+{
+	color:black;
+	padding:3px;
+	margin-top:10px;
+}
+.Text	/* ????? */
+{	
+	
+	outline:none;
+	height:30;
+	padding:5px;
+	margin-left:15;
+    color: #ccc;
+   /* background-color: grey;
+    border-color: grey;*/
+    background: linear-gradient(rgb(70,70,70), rgb(120,120,120));
+    border: 1px solid #000;
+    box-shadow: inset 0 2px 10px 1px rgba(0,0,0,.3), inset 0 0 0 60px rgba(0,0,0,.3), 0 1px rgba(255,255,255,.08);
+    
+}
+.Text:focus /* ????? */
+{
+	
+	box-shadow: inset 0 1px 3px 1px  rgba(0,0,0,.5);
+	
+}
+.extra /* ????? */
+{
+	width:300;
+	display:block;
+	margin-bottom:15px;
+}
+
+.Text2 /* ????? */
+{
+	border:none;
+	outline:none;
+	padding:5px;
+	margin-left:15;
+	margin-bottom:15px;
+    background: linear-gradient(rgb(70,70,70), rgb(120,120,120));
+	color:#ccc;
+    
+}
+.Text2:active /* ????? */
+{
+	outline:none;
+}
+.Text2::-webkit-scrollbar /* ????? */
+{
+	background-color: 2b2b2b;
+}
+.Text2::-webkit-scrollbar-thumb /* ????? */
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+}
+
+
+
+.Button a{ /* ????? */
+	
+	font-size: 90%;
+	font-weight: 700;
+	color: rgb(209,209,217);
+	text-decoration: none;
+	text-shadow: 0 -1px 2px rgba(0,0,0,.2);
+}
+.Button{ /* ????? */
+	margin-left:15;
+	padding:10 20;
+	display:inline-block;
+	text-align:center;
+	vertical-align:middle;
+	outline:none;
+	border:none;
+	background: linear-gradient(rgb(70, 68, 70), rgb(29, 29, 29)) ;
+}
+
+.Button:active /* ????? */
+{
+	outline:none;
+	  background: linear-gradient(rgb(136, 136, 136), rgb(45, 45, 45));
+}
+
+
+
+/*.editButton	
+{
+	float:left;
+	margin:10px;
+	color:black;
+	padding:3px;
+}*/
+.marginTop /* Кнопки на "filmEdit.php" */
+{
+	margin-top:10px;
+}
+.clearLeft	/* ссылка  "редактировать", кнопка "Изменить постер" */
+ {
+	clear:left;
+}
+.marginLeft/* ссылка "удалить"  */
+{
+	margin-left:20px;
+}
+.floatLeft /* ссылки "удалить" "редактировать" */
+{
+	float:left;
+}
+/*
+#editField
+{
+	float:left;
+	clear:both;
+}*/
+/*
+.floatRight
+{
+	float:right;
+}
+*/
+/*.link
+{	
+	clear:both;
+}*/
 	 
-	 .error
-	{
-		width:auto;
-		border:1px solid #944444;
-		border-radius:10px;
-		background-color: #842935;
-	}
+.error
+{
+	/*width:247;*/
+	border:1px solid #944444;
+	border-radius:10px;
+	background-color: #842935;	
+	color:#da7575;
+	margin-bottom:10;
+	padding:4;
+	margin-left:10px;
+}
 
-	.errorText
-	{
-		color:#da7575;
-		margin:5px;
-		padding:0;
-	}
+#pages
+{
+	width:auto;
+	margin:10 auto;
+	overflow:hidden;
+}
+.page
+{	
+	padding:0px 5;
+	text-decoration:none;
+}
+#currentPage
+{
+	text-decoration:underline;
+
+}
+.hiddenElement
+{
+	visibility:hidden;
+	position:absolute;
+	top:0;
+	right:0;
+}
+	
+	
+
+
+
+
+
 
 	
