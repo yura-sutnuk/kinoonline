@@ -8,11 +8,20 @@
 				  
 				  <?php else: ?>
 				  
-					 <a href='exit' class='paddingHorizontal'> выход </a>     <a class='paddingHorizontal' href='/profile/<?php echo $_SESSION['id'].'/';?>'><?php echo $_SESSION['login'];?></a>
-				  
+					<a href='exit' class='paddingHorizontal'> выход </a>     <span class='paddingHorizontal user' onMouseOut='hideMenu()' onMouseOver = 'showMenu()'><?php echo $_SESSION['login'];?>
+					<div id="menu" >
+						<ul id='menuColumn' >
+							<li><a href='/profile/<?php echo $_SESSION['id'].'/';?>'>Профайл</a></li>
+							<li><a href='/favorites/<?php echo $_SESSION['id'].'/';?>'>Избранное</a></li>
+							<?php if($_SESSION['login']=='Admin'):?>
+								<li><a href='/addmovie/'>Добавить фильм</a></li>
+							<?php endif;?>
+						</ul>
+					</div>
+					</span>
 				  <?php endif;?>	
 				<form name='searchForm' action='/controllers/mainController.php' method='POST' style="display:inline">
-					<input class='' type="text" name="search" value="" placeholder='Search' />
+					<input style='color:black;' type="text" name="search" value="" placeholder='Search' />
 					<a onClick='Submit(searchForm)'> Найти </a>
 				</form>
 			</div>

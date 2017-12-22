@@ -2,8 +2,8 @@
 			<div id='profileLeft'>
 				<center><h3 class='profileHeader'>Аватар</h3></center>
 				<form action='/controllers/userController.php' method='POST' name='ava' enctype="multipart/form-data">
-					<input name='newAvatar' type='file' class='hiddenElement' onChange='changeAvatar(newAvatar)' accept="image/*,image/jpeg">
-					<img <?php if(isset($_SESSION['id']) && $_SESSION['id']==$id) echo "onClick='fileSelect(newAvatar);'"?> src="/views/images/avatars/<?php echo $userData['avatar']; ?>" class='profileAvatar' width='200' height='200'>
+					<input name='newAvatar' type='file' class='hiddenElement' onChange='changeAvatar(ava)' accept="image/*,image/jpeg">
+					<img <?php if(isset($_SESSION['id']) && $_SESSION['id']==$id) echo "onClick='fileSelect(ava.newAvatar);'"?> src="/views/images/avatars/<?php echo $userData['avatar']; ?>" class='profileAvatar' width='200' height='200'>
 					
 					<input type='hidden' name='id' value='<?php echo $id ?>' >
 				</form>

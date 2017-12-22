@@ -42,9 +42,7 @@ function Submit (obj)
 }
 function fileSelect (obj)
 {
-
 	obj.click();
-
 }
 function selected(obj,valueContainer)
 {
@@ -61,12 +59,13 @@ function selected(obj,valueContainer)
 }
 function changeAvatar(obj)
 {
-	if(checkFileSize(obj.files[0].size))
+	if(checkFileSize(obj.newAvatar.files[0].size))
 	{
 		alert('файл не должен быть больше 300КБ');
 	}
-	else{
-		ava.submit();
+	else
+	{
+		obj.submit();
 	}
 	
 }
@@ -74,49 +73,69 @@ function checkFileSize(size)
 {
 	return size>300*1024;
 }
-function changeRating(filmid,userid,mark)
+function changeRating(filmId,userId,mark)
 {
 	var req = new XMLHttpRequest();
-		req.open('POST','/changeRating/'+filmid+'/'+userid+'/'+mark, false);
+		req.open('POST','/changeRating/'+filmId+'/'+userId+'/'+mark, false);
 		req.send();
 		if(req.status==200)
 		{
-			location.reload();
-		//	document.getElementById('w').innerHTML=req.responseText;
-			//alert( req.responseText );
+			var avgRating = (+req.responseText);
+			var html='';
+			for(var i=0; i<5;i++)
+			{
+				if(i<avgRating)
+				{
+					html += '<img onClick="changeRating('+filmId+','+userId+','+ (i+1) +');"  style="display:inline; cursor: pointer" src="/views/images/rate1.png"> ';
+				}
+				else
+				{
+					html += '<img onClick="changeRating('+filmId+','+userId+','+ (i+1) +');"  style="display:inline; cursor: pointer" src="/views/images/rate2.png"> ';
+				
+				}
+			
+			}
+			document.getElementById('rating'+filmId).innerHTML = html;
 		}
-		else
-		{
-		//	alert( req.status );
-		}
-		
-		/*// 4. Если код ответа сервера не 200, то это ошибка
-		if (req.status != 200) {
-		// обработать ошибку
-		alert( req.status + ': ' + req.statusText ); // пример вывода: 404: Not Found
-		} else {
-		// вывести результат
-		alert( req.responseText ); // responseText -- текст ответа.
-		}*/
-		
-		
-		   /* function refresh(param){
-             var XMLHttpRequestObject = false;
-             if (window.XMLHttpRequest)
-                XMLHttpRequestObject = new XMLHttpRequest();
-             else if(window.ActiveXobject)
-                XMLHttpRequestObject = new ActiveXObject("Microsoft.XMLHTTP");               
-                
-             if (XMLHttpRequestObject)
-             {
-                XMLHttpRequestObject.open('GET','handler.php?alb='+param);
-                XMLHttpRequestObject.onreadystatechange = function(){
-                    if (XMLHttpRequestObject.readyState == 4 && XMLHttpRequestObject.status == 200){
-                        document.getElementById('result').innerHTML = XMLHttpRequestObject.responseText;
-                    }   
-                }  
-                XMLHttpRequestObject.send(null);
-             }     
-           }*/
 }
 
+
+function addFavorite(filmId,userId)
+{
+	var req = new XMLHttpRequest();
+	req.open('POST','/addFavorite/'+userId+'/'+filmId,false);
+	req.send();
+
+	if(req.status==200)
+	{
+		document.getElementById('favorite'+filmId).innerHTML='<span  onClick="deleteFavorite('+filmId+','+userId+')"; > Удалить из избранного </span>'
+	}
+	else
+	{
+		alert('error');
+	}
+	
+}
+function deleteFavorite(filmId,userId)
+{
+	var req = new XMLHttpRequest();
+	req.open('POST','/deleteFavorite/'+userId+'/'+filmId,false);
+	req.send();
+	if(req.status==200)
+	{
+		document.getElementById('favorite'+filmId).innerHTML='<span  onClick="addFavorite('+filmId+','+userId+')"; > Добавить в избранное </span>';
+	}
+	else
+	{
+		alert('error');
+	}
+}
+
+function showMenu()
+{
+	document.getElementById('menu').style.visibility='visible'
+}
+function hideMenu()
+{
+	document.getElementById('menu').style.visibility='hidden'
+}

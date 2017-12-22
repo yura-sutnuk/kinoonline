@@ -1,29 +1,20 @@
 ﻿<?php 
 
-  //include_once(ROOT."/components/DB.php");
-  include_once(ROOT.'/models/model.php');
+  include_once(ROOT.'/models/base/model.php');
 	
 	class userModel extends model
 	{
-//private $connect;
-		
-	/*	public function __construct(IConnection $IConnect)
-		{
-			$this->connect = $IConnect;
-		}*/
+		//возвращает id последнего добавленного юзера
 		private function lastInsertID()
 		{
 			$query = 'SELECT LAST_INSERT_ID() as id FROM users';
-			$this->MyQuery($query)[0]['id'];
+			return $this->MyQuery($query)[0]['id'];
 		}
 
 		public function loginExist($login)
 		{
 		  $query = 'SELECT id FROM users WHERE login="'.$login.'"';
-		 // echo $query;
-		  
 		  $result = $this->MyQuery($query);
-		  
 		  if(empty($result))
 		  {
 		    return false;
@@ -46,8 +37,6 @@
 	
 			$query1 .= 'registerDate ';
 			$query2 .= 'now()';
-						//echo'<br>';
-			//var_dump($query1.$query2.')');
 			$this->MyQuery($query1.$query2.')');
 			
 			return $this->lastInsertID();
@@ -67,15 +56,11 @@
 	
 			$query1 .= key($data);
 			$query2 .= '"'.current($data).'"';
-						//echo'<br>';
-			//var_dump($query1.$query2.')');
 			return $result=$this->MyQuery($query1.$query2.')');
 		}
 		public function updateUserData($data, $table='userData')
 		{
-		//var_dump($data);
 			$query1='UPDATE '.$table.' SET ';
-			//$query2=') VALUES (';
 			
 			$size = count($data);
 			for($i=0;$i<$size-1;$i++)
@@ -86,17 +71,12 @@
 			}
 	
 			$query1 .= key($data).'=\''.current($data).'\' WHERE id=\''.$data['id'].'\'';
-			//$query2 .= 
-						//echo'<br>';
-			//var_dump($query1);
 			return $result=$this->MyQuery($query1);
 		}
-		
-		
+
 		public function userEnter($login)
 		{
 		  $query = "SELECT * FROM users WHERE login='".$login."'";
-		 // var_dump($query);
 		  return $this->MyQuery($query)[0];
 		}
 		
@@ -110,7 +90,6 @@
 				next($fields);
 			}
 			$query .= current($fields) . ' FROM '.$table.' WHERE id="'.$id.'"';
-			//var_dump($query);
 			return $this->MyQuery($query)[0];
 		}
 		

@@ -1,9 +1,10 @@
 	
 *
 {
-	padding:0;
-	margin:0;
+	padding:0px;
+	margin:0px;
 	color:#d7d6d4;
+	
 }
 	
 html 
@@ -16,14 +17,21 @@ html
 	background-size: cover;
 		
 }
+
+a {
+	text-decoration:none;
+}
+a:hover
+{
+	text-decoration:underline;
+}
 	
 #top 
 {   
 	position: absolute;
+	top: 0px;
 	width: -webkit-fill-available;
-	top: 0;
 	background-color:#2b2b2b;
-	/*padding-left:20px;*/
 	width:100%;
 }
 #topRight
@@ -37,9 +45,31 @@ html
 }
 .paddingHorizontal /* top.php */
 {
-padding-left:5px;
-padding-right:5px;
+	padding-left:5px;
+	padding-right:5px;
 }	
+.user
+{
+	position: absolute;
+    right: 330px;
+}
+#menu 
+{
+	width:max-content;
+	width: -moz-max-content;
+	text-align:right;
+	visibility:hidden;
+	position: absolute;
+    padding: 10px;
+    right: 0px;
+    z-index: 1;
+    background-color: #2b2b2b;
+}
+#menuColumn
+{
+	list-style-type:none;
+	text-decoration:none;
+}
 #content
 {	
 	background-color:2b2b2b;
@@ -47,19 +77,14 @@ padding-right:5px;
 	width:1000px; 
 	position:relative;
 	overflow:hidden;	
-	min-height:671;
-	/*border:1px solid #848480;*/
+	display:flex;
 }
 	
 #left 
 {
 	float:left;
-	width:300px;
 	background-color:#585858;
-	/*border:1px solid #848480;*/
-	position:absolute;
-	bottom:0;
-	top:0;	
+	flex:1;
 	border-right:1px solid #848480;
 }
 #right
@@ -67,14 +92,12 @@ padding-right:5px;
 	float:right;
 	width:698px;
 	overflow:hidden;
-	/*min-height:683;*/
-	
 }
 
 #zhanr
 {
-width:260px;
-margin:0px auto;
+	width:260px;
+	margin:0px auto;
 }
 	
 .column 	/* leftContent.php */
@@ -92,65 +115,93 @@ margin:0px auto;
 	border-bottom:1px solid #848480;
 }
 
-	.film 	/*  !!!!   */
+.film 	
 {
-	/*border:1px solid #848480;*/
 	border-bottom:1px solid #848480;
-	/*border-right:1px solid #848480;	*/
 	padding:10px;
-	overflow:hidden;			
+	overflow:hidden;		
+	
+	position:relative;
 }
-.film .name	/*  !!!!   */
+.film .name	
 {
 	display:inline;
+	float:left;			
 	max-width:max-content;
 	font-size:19;
 	text-decoration:none;	
 	padding-bottom:10px;
 }
-.film .name:hover	/*  !!!!   */
+.film .name:hover	
 {
 	text-decoration:underline;
 }
-.film .poster 	/*  !!!!   */
+.film .poster 	
 {
-	float:left;
-	clear:both;
-	padding-right:20px;
-	padding-bottom:20px;
+	position: relative;
+	margin-bottom:10px;
+    width: 200px;
+    height: 300px;
+    float: left;
+    clear: left;
 }
-.film p 	/*  !!!!   */
+.film .poster .favorites
+{
+	position:absolute;
+	bottom:0px;
+	padding:5px;
+	width:165px;
+	background-color:black;
+	float:right;
+	clear:left;
+}
+.favoritesLink
+{
+	text-decoration:none;
+}
+.film .describe
+{
+	width:457px;
+	float: left;
+    margin-left: 20px;
+}
+
+
+.film p 	
 { 
 	color:#949494;
 }
-.film .rating /*  !!!!   */
+.film .rating 
 {
 	float:right;
+	position:absolute;
+	top:10px;
+	right:10px;
 }
-#screens /*  !!!!   */
+#screens 
 {
 	border:1px solid #848480;
 	float:left;
 	padding:15px;
 	margin:20px;
-	margin-left:0;
+	margin-left:0px;
 }
-#screens * /*  !!!!   */
+#screens * 
 {
-	padding:0;
+	padding:0px;
 	margin-right:5px;
 	margin-left:5px;
        
 }
 	
-#video /*  !!!!   */
+#video
 {
 	float:left;
 	margin:20px;
-	margin-left:0;
+	margin-left:0px;
 }
 
-#commentList /*  ****   */
+#commentList 
 {
 	border-top:1px solid #848480;
 	border-left:1px solid #848480;
@@ -159,102 +210,103 @@ margin:0px auto;
 	margin-right:50px;
 	float:left;
 }
-#commentList h3 /*  ****   */
+#commentList h3 
 {
 	padding:20px;
 	border-bottom:1px solid #848480;
 }
-.commentBlock	/*  ****   */
+.commentBlock	
 {
   overflow:hidden;
   border-bottom:1px solid #848480;	  
 }
-.commentLeft 	/*  ****   */
+.commentLeft 	
 {
   float:left;
   padding:10px;
   border-right:1px solid #848480;
 }
-.commentLeft img,p 	/*  ****   */
+.commentLeft img,p 	
 {
 	margin:0px;
 	padding:0px;
 	padding-bottom:5px;
 }
-.commentText 	/*  ****   */
+.commentText 	
 {
 	padding:10px;
 	float:left;
 	width:480px;
 }
-.commentForm 	/*  ****   */
+.commentForm 	
 {
 	float:left;
-	margin:20px 0 20px 120px;
+	margin:20px 0px 20px 120px;
 }
-.commentButton /*  ****   */
+.commentButton 
 {
 	color:black;
 	padding:3px;
 	margin-top:10px;
 }
-.Text	/* ????? */
-{	
-	
+#commentTextarea
+{
+	margin-left:0px;
+	width: 447px;
+	height: 175px;
+}
+.Text	
+{		
 	outline:none;
-	height:30;
+	height:30px;
 	padding:5px;
-	margin-left:15;
+	margin-left:15px;
     color: #ccc;
-   /* background-color: grey;
-    border-color: grey;*/
     background: linear-gradient(rgb(70,70,70), rgb(120,120,120));
     border: 1px solid #000;
     box-shadow: inset 0 2px 10px 1px rgba(0,0,0,.3), inset 0 0 0 60px rgba(0,0,0,.3), 0 1px rgba(255,255,255,.08);
     
 }
-.Text:focus /* ????? */
+.Text:focus 
 {
 	
 	box-shadow: inset 0 1px 3px 1px  rgba(0,0,0,.5);
 	
 }
-.extra /* ????? */
+.extra
 {
-	width:300;
+	width:300px;
 	display:block;
 	margin-bottom:15px;
 }
 
-.Text2 /* ????? */
+.Text2
 {
 	border:none;
 	outline:none;
 	padding:5px;
-	margin-left:15;
+	margin-left:15px;
 	margin-bottom:15px;
     background: linear-gradient(rgb(70,70,70), rgb(120,120,120));
 	color:#ccc;
     
 }
-.Text2:active /* ????? */
+.Text2:active 
 {
 	outline:none;
 }
-.Text2::-webkit-scrollbar /* ????? */
+.Text2::-webkit-scrollbar 
 {
 	background-color: 2b2b2b;
 }
-.Text2::-webkit-scrollbar-thumb /* ????? */
+.Text2::-webkit-scrollbar-thumb
 {
 	border-radius: 10px;
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
 	background-color: #555;
 }
 
-
-
-.Button a{ /* ????? */
+.Button a{ 
 	
 	font-size: 90%;
 	font-weight: 700;
@@ -262,9 +314,9 @@ margin:0px auto;
 	text-decoration: none;
 	text-shadow: 0 -1px 2px rgba(0,0,0,.2);
 }
-.Button{ /* ????? */
-	margin-left:15;
-	padding:10 20;
+.Button{
+	margin-left:15px;
+	padding:10px 20px;
 	display:inline-block;
 	text-align:center;
 	vertical-align:middle;
@@ -274,20 +326,10 @@ margin:0px auto;
 }
 
 .Button:active /* ????? */
-{
 	outline:none;
 	  background: linear-gradient(rgb(136, 136, 136), rgb(45, 45, 45));
 }
 
-
-
-/*.editButton	
-{
-	float:left;
-	margin:10px;
-	color:black;
-	padding:3px;
-}*/
 .marginTop /* Кнопки на "filmEdit.php" */
 {
 	margin-top:10px;
@@ -304,44 +346,28 @@ margin:0px auto;
 {
 	float:left;
 }
-/*
-#editField
-{
-	float:left;
-	clear:both;
-}*/
-/*
-.floatRight
-{
-	float:right;
-}
-*/
-/*.link
-{	
-	clear:both;
-}*/
-	 
+ 
 .error
 {
-	/*width:247;*/
 	border:1px solid #944444;
 	border-radius:10px;
 	background-color: #842935;	
 	color:#da7575;
-	margin-bottom:10;
-	padding:4;
+	margin-bottom:10px;
+	padding:4px;
 	margin-left:10px;
+	float:left;
 }
 
 #pages
 {
 	width:auto;
-	margin:10 auto;
+	margin:10px auto;
 	overflow:hidden;
 }
 .page
 {	
-	padding:0px 5;
+	padding:0px 5px;
 	text-decoration:none;
 }
 #currentPage
@@ -353,15 +379,8 @@ margin:0px auto;
 {
 	visibility:hidden;
 	position:absolute;
-	top:0;
-	right:0;
+	top:0px;
+	right:0px;
 }
 	
-	
-
-
-
-
-
-
 	

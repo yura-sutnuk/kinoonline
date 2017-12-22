@@ -49,7 +49,6 @@ function checkField(value,fun,errorField,Text='Это поле должно бы
 function validLogin(obj)
 {
 	var reg =/^[a-zA-Z0-9_-]{3,14}$/ ; 
-	//alert(!reg.test(obj.value));
 	return !reg.test(obj.value);
 }
 function loginExist(obj)
@@ -57,7 +56,6 @@ function loginExist(obj)
 	var req = new XMLHttpRequest();
 	req.open('POST','/loginExist/'+obj.value, false);
 	req.send();
-	//alert(req.responseText);
 	return req.responseText==true;
 
 }
@@ -68,7 +66,6 @@ function validEmail(obj)
 }
 function validPass(pass)
 {
-//alert((pass[0]==pass[1])&& (pass[0]!=''));
 	return (pass[0]!=pass[1]) || (pass[0]=='');
 }
 
@@ -107,7 +104,6 @@ function checkEnter(obj)
 	}
 	else
 	{
-		//window.location = req.responseText;
 		history.go(-1);
 	}
 }

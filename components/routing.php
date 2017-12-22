@@ -18,48 +18,35 @@
 		public function run()
 		{
 			$uri = $this->getURI();
-			//$controllerName='mainController';
-			//$actionName='actionMain';
-			//$param = [];
-			
-			//var_dump($uri);
 			
 			foreach($this->routs as $patern => $path)
 			{	
 				if(preg_match("~$patern~", $uri) )
 				{
 				
-						$segment = preg_replace("~$patern~", $path , $uri,1);
-						//var_dump($segment);
-						$segment = explode('/',$segment);
-					//var_dump($segment);
+					$segment = preg_replace("~$patern~", $path , $uri,1);
+					$segment = explode('/',$segment);
 						
-						$controllerName = array_shift($segment)."Controller";
-						$actionName="action".ucfirst( array_shift($segment) );
-						$param = $segment;
+					$controllerName = array_shift($segment)."Controller";
+					$actionName="action".ucfirst( array_shift($segment) );
+					$param = $segment;
 						
-						//echo 'param'. var_dump($param);
-						$file = ROOT."/controllers/".$controllerName.".php";
+					$file = ROOT."/controllers/".$controllerName.".php";
 						
 						
-						if(file_exists($file) )
-						{
-							include_once($file);
-							
-						}
-						else
-						{
-							include ROOT.'/views/page404.php';
-							return;
-						}
+					if(file_exists($file) )
+					{
+						include_once($file);	
+					}
+					else
+					{
+						include ROOT.'/views/page404.php';
+						return;
+					}
 						
-						$controllerObj = new $controllerName;
-						//var_dump($controllerName.'.'.$actionName.'('.$param.')');
-						call_user_func_array( array($controllerObj, $actionName) , $param);
-						
-							return;
-						
-					  //return;//////////////////////////	
+					$controllerObj = new $controllerName;
+					call_user_func_array( array($controllerObj, $actionName) , $param);
+					return;
 				}
 				
 			}

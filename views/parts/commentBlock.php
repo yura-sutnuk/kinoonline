@@ -20,7 +20,7 @@
 				  					<?php 
 						if(isset($_SESSION['login'])):?>
 						
-						  <form class='commentForm'  name='comment' method='POST' action='/controllers/mainController.php'>
+						<center>  <form class='commentForm'  name='comment' method='POST' action='/controllers/mainController.php'>
 							<table>
 							  <tr>
 							    <td>
@@ -29,7 +29,7 @@
 							  </tr>
 							  <tr>
 								<td >
-								  <textarea name='text' rows='11' cols='60' class='text2'></textarea>
+								  <textarea name='text' rows='11' cols='60' class='text2' id ='commentTextarea'></textarea>
 								</td>
 							  </tr>
 							  <tr>
@@ -39,7 +39,7 @@
 							  </tr>
 							</table>
 						  </form>
-						
+						</center>
 						 <?php else: ?>
 						
 						  <p class='commentForm'>Коментарии доступны только для зарегестрированых пользователей</p>

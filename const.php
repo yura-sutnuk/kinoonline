@@ -1,8 +1,7 @@
 ﻿<?php
 
 define ('ROOT',dirname(__FILE__));
-//define ('CONNECTION','PDOConnect');
-
+define ('FILMS_ON_PAGE',5);
 const GENRE_LIST = [
     'anime'=>'аниме',
 	'biography'=>'биография',
@@ -29,6 +28,8 @@ const GENRE_LIST = [
 	'fantastika'=>'фантастика',
 	'fentezi'=>'фэнтези',
 	'kriminal'=>'криминал',
+
+	
     
 	
 	];
