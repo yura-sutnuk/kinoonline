@@ -1,5 +1,34 @@
 ﻿var bool = true;
 
+function checkVideoData(forma)
+{
+	
+	var video = document.getElementsByClassName('addvideo');
+	var name = document.getElementsByClassName('addname');
+	//alert(video.length);
+	for(var i=0;i<video.length;i++)
+	{
+	//	alert(name[i].value);
+		if(video[i].value!='')
+		{
+			if(name[i].value=='')
+			{
+			var deletedElement = video[i].parentNode.parentNode;//tr
+			document.getElementById('editField').removeChild(deletedElement);
+			i--;
+			}
+		}
+		else
+		{
+			//name[i].value='';
+			var deletedElement = name[i].parentNode.parentNode; //tr
+			document.getElementById('editField').removeChild(deletedElement);
+			i--;
+		}
+	}	
+	forma.submit();	
+}
+
 function checkData()
 {
 	bool=true;
@@ -14,6 +43,7 @@ function checkData()
 	checkField(document.addFilm.country.value,empty,document.getElementById('errorCountry'));
 	checkField(document.addFilm.producer.value,empty,document.getElementById('errorProducer'));
 	checkField(document.addFilm.video.value,empty,document.getElementById('errorVideo'));
+	checkField(document.addFilm.videoName.value,empty,document.getElementById('errorVideoName'));
 	checkField(document.addFilm.poster.value,empty,document.getElementById('errorPoster'));
 	checkField(document.addFilm.screen1.value,empty,document.getElementById('errorScreen1'));
 	checkField(document.addFilm.screen2.value,empty,document.getElementById('errorScreen2'));

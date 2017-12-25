@@ -77,6 +77,13 @@
 							</td>
 						</tr>
 						<tr>
+							<td align="right">Название Видео</td> 
+							<td><input type="text" class="Text extra" name="videoName" ></td> 
+							<td id='errorVideoName'>
+
+							</td>
+						</tr>
+						<tr>
 							<td align="right">Постер (*.jpeg)</td> 
 							<td><input type="file" class='hiddenElement' onChange='selected(poster,posterValue);'  name="poster" accept="image/*,image/jpeg"  >
 								<span class='Button' onClick='fileSelect(addFilm.poster)'><a >Загрузить файл</a></span>

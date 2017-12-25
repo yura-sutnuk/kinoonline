@@ -13,7 +13,7 @@
 							<?php endif;?>
 							
 							<a class='page' href='/<?php echo $linkHref ; echo $currentPage-1 ?>/'><?php echo $currentPage-1 ?></a>
-							<a class='page active' id='currentPage' href='/<?php echo $linkHref ; echo $currentPage ?>/'><?php echo $currentPage ?></a>
+							<a class='page pageActive' id='currentPage' href='/<?php echo $linkHref ; echo $currentPage ?>/'><?php echo $currentPage ?></a>
 							<?php if($currentPage+1<=$pageCount):?>
 								<a class='page' href='/<?php echo $linkHref; echo $currentPage+1 ?>/'><?php echo $currentPage+1 ?></a>
 							<?php endif;?>
@@ -25,7 +25,7 @@
 								<a class='page' href='/<?php echo $linkHref ; echo $pageCount ?>/'><?php echo $pageCount ?></a>
 							<?php endif;?>
 						<?php else:?>
-							<a class='page active' id='currentPage' href='/<?php echo $linkHref ; ?>1/'>1</a>
+							<a class='page pageActive' id='currentPage' href='/<?php echo $linkHref ; ?>1/'>1</a>
 							<?php if($currentPage+1 <= $pageCount):?>	
 								<a class='page' href='/<?php echo $linkHref; ?>2/'>2</a>
 							<?php endif; ?>

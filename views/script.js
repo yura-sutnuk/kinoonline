@@ -1,4 +1,5 @@
 ﻿
+
 function editPoster()
 {
   if(!document.getElementById("trPoster"))
@@ -30,10 +31,69 @@ function editFilm()
 {
   if(!document.getElementById("trFilm"))
   { 
-	  var tr = document.createElement('tr');
-	  tr.innerHTML = '<td align="right" id="trFilm">Видео</td><td><input type="text" class="text" name="video"></td>  ';
-	  editField.appendChild(tr);
+		var tr = document.createElement('tr');
+		//tr.innerHTML = '<td align="right" id="trFilm">Видео</td><td><input type="text" class="text" name="video"></td>  '; 
+		tr.innerHTML = '<td align="right" id="trFilm"><span>Видео</span> <input type="text" class="text" name="video"></td>';
+		tr.innerHTML += '<td align="left" id="trFilm2"><span>Название</span> <input type="text" class="text" name="videoName"></td>'
+		editField.appendChild(tr);
+		var elem = document.getElementsByClassName('active')[0];
+		var newInput = document.createElement('input');
+		newInput.type="hidden";
+		newInput.name="seriesId"
+		newInput.value = elem.id;
+		editField.appendChild(newInput);
+		document.getElementsByName('video')[0].value = document.getElementById('frame').src;
+		document.getElementsByName('videoName')[0].value = elem.innerHTML;
+		var newButton = document.createElement('input')
+		newButton.type = 'submit';
+		newButton.className = 'button'; 
+		newButton.value = 'Удалить серию'; 
+		newButton.name = 'deleteSeries'; 
+		 
+		document.getElementById('trFilm2').appendChild(newButton);
   }
+  else
+  {
+		var elem = document.getElementsByClassName('active')[0];
+		document.getElementsByName('seriesId')[0].value = elem.id;
+		document.getElementsByName('video')[0].value = document.getElementById('frame').src;
+		document.getElementsByName('videoName')[0].value = elem.innerHTML;
+  }
+}
+function addFilm()
+{
+	var tr = document.createElement('tr');
+	tr.innerHTML = '<td align="right"><span>Видео</span> <input type="text" class="text addvideo" name="addvideo[]"></td>';
+	tr.innerHTML += '<td align="left"><span>Название</span> <input type="text" class="text addname" name="namevideo[]"></td>'
+	editField.appendChild(tr);
+}
+
+function move(left)
+{
+	var elem = document.getElementsByClassName('Series');
+	var endLeft = parseInt(elem[elem.length-1].style.left);
+	var endRight = parseInt(elem[0].style.left);
+	if(left==-1 && endLeft<=450)
+	{
+	return;
+	}
+	if(left==1 && endRight>=0)
+	{
+	return;
+	}
+	//alert(elem[0].style.left);
+	for(var i=0;i<elem.length;i++)
+	{
+		elem[i].style.left=parseInt(elem[i].style.left)+left*90;
+	}
+		//alert(elem[0].style.left);
+}
+function load(src,id,obj)
+{	
+	
+	document.getElementById('frame').src=src;
+	document.getElementsByClassName('active')[0].classList.remove('active'); 
+	obj.classList.add('active');
 }
 
 function Submit (obj)
