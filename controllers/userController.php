@@ -6,7 +6,7 @@ include_once ROOT.'/controllers/globalFunctions.php';
 
   class userController extends globalFunctions
   {
-	private $model;
+	//private $model;
 	public function __construct()
 	{
 		$this->model= new userModel();
