@@ -28,12 +28,8 @@
 	<div class='describe'>
 		<?php include ROOT.'/views/parts/rating.php';?>
 		<p style='margin-top:10'>Год выпуска: <?php echo $filmData['year']; ?></p>
-		<p>Жанр: <?php foreach($filmData['genre'] as $genre)
-			{
-				echo $genre;
-				echo ' ';
-			}
-		?></p>
+		<p>Жанр: <?php echo $filmData['genre'] ?>
+		</p>
 		<p>Страна:<?php echo $filmData['country']; ?></p>
 		<p>Режиссер:<?php echo $filmData['producer']; ?></p>
 		<p>В ролях:<?php echo $filmData['cast']; ?> </p>

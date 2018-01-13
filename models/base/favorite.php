@@ -7,11 +7,13 @@
 		public function getFavoritesFilmId($userId)
 		{
 			$query = 'SELECT filmId as id FROM favorites WHERE userId="'.$userId.'"';
-			return $this->MyQuery($query,true);
+			return $this->MyQuery($query,PDO::FETCH_COLUMN);
 		}
 		public function deleteFavoriteWhereFilm($filmId)
 		{
 			$query = 'DELETE FROM favorites WHERE filmId="'.$filmId.'"';
 			$this->MyQuery($query);
 		}
+
+
 	}

@@ -1,7 +1,13 @@
-<?php 
+<?php
 
-class globalFunctions 
+include_once(ROOT."/models/FilmModel.php");
+
+abstract class globalFunctions
 {
+    protected $linkHref;
+    protected $model;
+
+
 	/*
 	функция для загрузки изображений на сервер
 	$index - индекс в масиве _FILES
@@ -20,6 +26,41 @@ class globalFunctions
 			return basename($destination);
 		}
 	}
-	
+
+
+    public function getPages($count,$maxFilmsOnPage,$currentPage)
+    {
+        $pageCount = (int)ceil($count/$maxFilmsOnPage);
+        $start = $currentPage-2 > 0? $currentPage-2 : 1;
+        $end = $currentPage+2 < $pageCount? $currentPage+2 : $pageCount;
+        $htmlPage = '';
+        if ($currentPage-2>1)
+        {
+            $htmlPage = "<a class='page' href ='/".$this->linkHref."'/1/' >1</a> <span> ... </span>";
+        }
+        foreach (range($start,$end) as $page)
+        {
+            if($currentPage == $page )
+            {
+                $htmlPage .=  "<a class='page' id='activePage' href='/". $this->linkHref.$page ."/'>".$page."</a>";
+
+            }
+            else
+            {
+                $htmlPage .= "<a class='page' href='/". $this->linkHref.$page."/'>".$page."</a>";
+            }
+        }
+
+        if($currentPage+2 < $pageCount)
+        {
+            $htmlPage .= "<span>...</span><a class='page' href='/". $this->linkHref.$pageCount."/ '>".$pageCount."</a>";
+        }
+
+        return $htmlPage;
+    }
+
+
+
+
 
 }

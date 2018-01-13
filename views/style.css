@@ -24,6 +24,7 @@ a {
 a:hover
 {
 	text-decoration:underline;
+	cursor:pointer;
 }
 	
 #top 
@@ -72,8 +73,8 @@ a:hover
 }
 #content
 {	
-	background-color:2b2b2b;
-	margin:200px auto 100 auto;
+	background-color:#2b2b2b;
+	margin:200px auto 100px auto;
 	width:1000px; 
 	position:relative;
 	overflow:hidden;	
@@ -128,7 +129,7 @@ a:hover
 	display:inline;
 	float:left;			
 	max-width:max-content;
-	font-size:19;
+	font-size:19px;
 	text-decoration:none;	
 	padding-bottom:10px;
 }
@@ -297,7 +298,7 @@ a:hover
 }
 .Text2::-webkit-scrollbar 
 {
-	background-color: 2b2b2b;
+	background-color: #2b2b2b;
 }
 .Text2::-webkit-scrollbar-thumb
 {
@@ -339,7 +340,7 @@ a:hover
 }
 
 .Series{
-	width:100;
+	width:100px;
 	padding:10px 0px;
 	display:inline-block;
 	text-align:center;
@@ -348,6 +349,10 @@ a:hover
 	border:none;
 	background: linear-gradient(rgb(70, 68, 70), rgb(29, 29, 29)) ;
 }	
+.Series:hover
+{
+	cursor:pointer;
+}
 .active
 {
 	outline:none;
@@ -401,7 +406,7 @@ a:hover
 	padding:0px 5px;
 	text-decoration:none;
 }
-#currentPage
+#activePage
 {
 	text-decoration:underline;
 
